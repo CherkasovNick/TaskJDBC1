@@ -20,22 +20,13 @@ public class Main {
         User user3 = new User("Joe", "Fender", (byte)81);
         User user4 = new User("Oliver", "Sykes", (byte)35);
 
-        UserDao a = new UserDaoJDBCImpl();
-        Util util = new Util();
-        Connection db = util.getConnection();
+        UserService a = new UserServiceImpl();
 
-        db.setAutoCommit(false);
         a.createUsersTable();
-        db.commit();
         a.saveUser(user1.getName(), user1.getLastName(), user1.getAge());
-        System.out.println("User \'Rick\' added to the table;");
         a.saveUser(user2.getName(), user2.getLastName(), user2.getAge());
-        System.out.println("User \'Cory\' added to the table;");
         a.saveUser(user3.getName(), user3.getLastName(), user3.getAge());
-        System.out.println("User \'Joe\' added to the table;");
         a.saveUser(user4.getName(), user4.getLastName(), user4.getAge());
-        db.commit();
-        System.out.println("User \'Oliver\' added to the table;");
 
         List<User> list = a.getAllUsers();
 

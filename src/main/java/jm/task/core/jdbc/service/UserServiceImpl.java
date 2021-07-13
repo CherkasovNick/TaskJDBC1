@@ -3,16 +3,11 @@ package jm.task.core.jdbc.service;
 import jm.task.core.jdbc.dao.UserDao;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.util.Util;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    UserDao ud = new UserDaoJDBCImpl();
+    private final UserDao ud = new UserDaoJDBCImpl();
 
     public UserServiceImpl() {
     }
@@ -27,6 +22,7 @@ public class UserServiceImpl implements UserService {
 
     public void saveUser(String name, String lastName, byte age) {
         ud.saveUser(name, lastName, age);
+        System.out.println("User \'" + name + "\' added to the table;");
     }
 
     public void removeUserById(long id) {
