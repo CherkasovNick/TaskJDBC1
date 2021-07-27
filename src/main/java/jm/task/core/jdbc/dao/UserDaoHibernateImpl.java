@@ -77,7 +77,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.close();
         }
     }
-
+//transaction
     @Override
     public List<User> getAllUsers() {
         Session session = Util.getSessionFactory().openSession();
