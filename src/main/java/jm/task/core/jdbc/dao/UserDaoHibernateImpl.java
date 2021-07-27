@@ -31,7 +31,6 @@ public class UserDaoHibernateImpl implements UserDao {
             session.close();
         }
 
-
     }
 
     @Override
